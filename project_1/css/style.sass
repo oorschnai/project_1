@@ -1,0 +1,754 @@
+@import "nullstyle.sass"
+
+$grey_color: #EFEFEF
+$accent_color: #66C05D
+$dark_color: #333333
+
+body
+  font-family: Roboto, serif
+  font-weight: 400
+  font-style: normal
+
+%link_round
+  color: $accent_color
+  border: 2px solid
+  border-radius: 50%
+  width: 45px
+  height: 45px
+
+
+.top-line
+  height: 70px
+  width: 100%
+  background-color: $grey_color
+
+.top-line__menu
+  height: 17px
+  max-width: 550px
+  display: flex
+  justify-content: space-between
+  padding-top: (50px - 17px) / 2
+  margin: 0 auto
+  white-space: nowrap
+  flex-wrap: wrap
+  text-align: center
+
+
+  & > div > a
+    width: 100px
+    margin: 5px 10px
+    padding: 5px 0
+    white-space: nowrap
+    line-height: 16.41px
+    font-size: 14px
+
+
+  @media (max-width: 570px)
+    margin: 0 10px
+    padding: 10px 0
+
+    & > div
+      flex: 30%
+      height: 30px
+
+
+  @media (min-width: 700px)
+    margin: 0 calc((100% - 500px) / 2)
+
+
+.second-line
+
+  height: 100px
+  display: flex
+  justify-content: space-between
+
+  & .second_line__top
+
+    & .beauty
+      margin-left: 10px
+      height: 100%
+      display: flex
+      align-items: center
+
+      & img
+        width: 50px
+        height: 50px
+
+    & .beauty h2
+      font-weight: 700
+      font-size: 30px
+      line-height: 35px
+      letter-spacing: 0.1em
+      color: #66C05D
+
+    & .second_line__phone
+      display: none
+
+  & .second_line__bottom
+    display: none
+
+  & .burger
+    font-size: 16px
+    line-height: 19px
+    margin-left: 10px
+    color: #000000
+
+    & .burger__wrapper
+      position: absolute
+      top: 0
+      right: -100%
+      height: 100%
+      width: 100%
+      background: $accent_color
+      transition: all 0.6s ease-in-out
+
+    & #active:checked ~ .burger__wrapper
+      right: 0
+
+    & .menu-btn
+      position: absolute
+      z-index: 2
+      right: 20px
+      top: 90px
+      height: 50px
+      width: 50px
+      text-align: center
+      line-height: 50px
+      border-radius: 50%
+      font-size: 20px
+      cursor: pointer
+
+    & .menu-btn span, & .menu-btn:before, & .menu-btn:after
+      content: ""
+      position: absolute
+      top: calc(50% - 1px)
+      left: 30%
+      width: 40%
+      border-bottom: 2px solid #000
+      transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+    & .menu-btn:before
+      transform: translateY(-8px)
+
+    & .menu-btn:after
+      transform: translateY(8px)
+
+    & .close
+      z-index: 1
+      width: 100%
+      height: 100%
+      pointer-events: none
+      transition: background .6s
+
+    /* closing animation */
+
+
+
+
+    & #active:checked + .menu-btn span
+      transform: scaleX(0)
+
+    & #active:checked + .menu-btn:before
+      transform: rotate(45deg)
+      border-color: #fff
+
+    & #active:checked + .menu-btn:after
+      transform: rotate(-45deg)
+      border-color: #fff
+
+    & .burger__wrapper ul
+      position: absolute
+      top: 60%
+      left: 50%
+      height: 80%
+      transform: translate(-50%, -50%)
+      list-style: none
+      text-align: center
+
+    & .burger__wrapper ul li
+      height: 10%
+      margin: 15px 0
+
+    & .burger__wrapper ul li a
+      text-decoration: none
+      font-size: 20px
+      font-weight: 500
+      padding: 5px 20px
+      color: #fff
+      border-radius: 50px
+      position: absolute
+      line-height: 30px
+      margin: 5px 30px
+      opacity: 0
+      transition: all 0.3s ease
+      transition: transform .6s cubic-bezier(0.215, 0.61, 0.355, 1)
+
+    & .burger__wrapper ul li a:after
+      position: absolute
+      content: ""
+      background: #fff
+      width: 100%
+      height: 100%
+      left: 0
+      top: 0
+      border-radius: 50px
+      transform: scaleY(0)
+      z-index: -1
+      transition: transform 0.3s ease
+
+    & .burger__wrapper ul li a:hover:after
+      transform: scaleY(1)
+
+    & .burger__wrapper ul li a:hover
+      color: #1a73e8
+
+    & input[type="checkbox"]
+      display: none
+
+    & #active:checked ~ .burger__wrapper ul li a
+      opacity: 1
+
+    & .burger__wrapper ul li a
+      transition: opacity 1.2s, transform 1.2s cubic-bezier(0.215, 0.61, 0.355, 1)
+      transform: translateX(100px)
+
+    & #active:checked ~ .burger__wrapper ul li a
+      transform: none
+      transition-timing-function: ease, cubic-bezier(.1, 1.3, .3, 1)
+      transition-delay: .6s
+      transform: translateX(-100px)
+
+
+  @media (min-width: 700px)
+    display: flex
+    flex-direction: column
+    height: 149px
+    width: 100%
+    margin-top: 20px
+    margin-bottom: 30px
+    background-color: white
+
+    & .second_line__top
+      height: 100px
+      border-bottom: 1px solid $grey_color
+      display: flex
+      justify-content: space-around
+      align-items: center
+
+      & .beauty
+        display: flex
+        align-items: center
+
+        & img
+          width: 80px
+          height: 80px
+
+      & .beauty h2
+        font-weight: 700
+        font-size: 36px
+        line-height: 42px
+        letter-spacing: 0.1em
+        color: #66C05D
+
+      & .second_line__phone
+        width: 350px
+        display: flex
+        align-items: center
+        justify-content: space-around
+
+    & .second_line__bottom
+      font-size: 16px
+      line-height: 19px
+      height: 49px
+      display: flex
+      justify-content: space-between
+      padding: 0 calc((100% - 676px) / 2)
+      align-items: flex-end
+
+    & .burger
+      display: none
+
+
+.content__sale
+  padding-left: 5px
+  background-color: $accent_color
+  display: flex
+  align-items: center
+  justify-content: space-around
+  overflow: hidden
+
+  & h2, & p, & button
+    color: white
+
+  & .content__sale_text
+    width: 60vw
+    height: 40vw
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    padding: 10px 0
+
+    & h2
+      font-weight: 700
+      font-size: 20px
+      line-height: 30px
+
+    & p
+      font-size: 12px
+      line-height: 20px
+
+    & button
+      width: 100px
+      height: 40px
+      background: #66C05D
+      border: 2px solid #FFFFFF
+      border-radius: 40px
+
+  & .content__sale_chair
+    display: flex
+
+  & .content__sale_chair .first_circle
+    display: flex
+    align-items: center
+    width: 40vw
+    height: 40vw
+    background: rgba(255, 255, 255, 0.3)
+    border-radius: 50%
+    justify-content: center
+
+  & .content__sale_chair .first_circle .second_circle
+    width: 35vw
+    height: 35vw
+    border-radius: 50%
+    background: rgba(255, 255, 255, 0.4)
+    display: flex
+    justify-content: center
+    align-items: center
+
+    & img
+      width: 40vw
+
+  @media (min-width: 500px)
+    padding: 0 20px
+
+    & .content__sale_text
+      width: 45vw
+      height: 40vw
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+
+      & h2
+        font-weight: 700
+        font-size: 30px
+        line-height: 45px
+
+      & p
+        font-size: 14px
+        line-height: 20px
+
+      & button
+        width: 170px
+        height: 40px
+        background: #66C05D
+        border: 2px solid #FFFFFF
+        border-radius: 40px
+
+
+  @media (min-width: 700px)
+    padding: 0 20px
+
+    & .content__sale_text
+      width: 45vw
+      height: 40vw
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+
+      & h2
+        font-weight: 700
+        font-size: 48px
+        line-height: 56px
+
+      & p
+        font-size: 14px
+        line-height: 20px
+
+      & button
+        width: 170px
+        height: 40px
+        background: #66C05D
+        border: 2px solid #FFFFFF
+        border-radius: 40px
+
+  @media (min-width: 1200px)
+    height: 604px
+
+    & .content__sale_text
+      width: 308px
+      height: 219px
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+
+
+    & .content__sale_chair .first_circle
+      display: flex
+      align-items: center
+      width: 859px
+      height: 859px
+      background: rgba(255, 255, 255, 0.3)
+      border-radius: 50%
+      justify-content: center
+
+    & .content__sale_chair .first_circle .second_circle
+      width: 677px
+      height: 677px
+      border-radius: 50%
+      background: rgba(255, 255, 255, 0.4)
+      display: flex
+      justify-content: center
+
+
+.content__main
+  background-color: $grey_color
+  display: flex
+  justify-content: center
+  flex-direction: column
+  padding: 5px 10px
+
+  @media (min-width: 1200px)
+    height: 954px
+    padding: 0 0 0 calc((100% - 1110px) / 2)
+
+
+.content__goods
+  height: min-content + 200px
+  margin-bottom: 100px
+
+  & > h2
+    font-weight: 700
+    font-size: 17px
+    line-height: 24px
+    margin-bottom: 30px
+
+  @media (min-width: 700px)
+    margin-bottom: 50px
+
+    & > h2
+      font-weight: 700
+      font-size: 26px
+      line-height: 27px
+      margin-bottom: 40px
+
+  @media (min-width: 1200px)
+    width: 1110px
+    height: 430px
+    margin-bottom: 100px
+
+    & > h2
+      font-weight: 700
+      font-size: 24px
+      line-height: 28px
+      margin-bottom: 40px
+
+  & .goods
+    display: flex
+    justify-content: space-around
+    flex-wrap: wrap
+    width: min-content + 100px
+
+    & .good
+      width: 255px
+      height: 300px
+      background-color: white
+      display: flex
+      flex-direction: column
+      align-items: center
+      margin: 5px
+      padding: 0 10px
+      justify-content: space-around
+
+      & img
+        width: 100px
+        height: 150px
+
+      @media (min-width: 1200px)
+        height: 363px
+        padding: 0 30px
+
+        & img
+          width: 125px
+          height: 166px
+
+      & > p
+        font-size: 14px
+        line-height: 20px
+        text-align: center
+
+      & > h2
+        width: 80px
+        height: 19px
+        font-weight: 500
+        font-size: 21px
+        line-height: 25px
+        text-align: center
+        letter-spacing: 0.05em
+
+      & button
+        width: 130px
+        height: 35px
+        background-color: $accent_color
+        border-radius: 30px
+        font-size: 14px
+        line-height: 16px
+        color: white
+        text-align: center
+        letter-spacing: 0.05em
+
+
+.content__second_row
+  display: flex
+  align-items: center
+  flex-direction: column
+
+  @media (min-width: 1200px)
+    justify-content: space-between
+    flex-direction: row
+    margin-right: calc(100% - 1110px)
+
+  & > *
+    background: #66C05D
+    margin: 5px
+    max-width: min-content + 100px
+
+    @media (min-width: 700px)
+      width: 540px
+      height: 212px
+
+
+  & .subscribe
+    width: 100%
+    max-width: 450px
+    height: 100%
+    min-height: 130px
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+
+    & .left
+      margin: 5px
+      height: 100%
+      display: flex
+      flex-direction: column
+      justify-content: space-around
+
+      @media (min-width: 700px)
+        width: 255px
+        padding: 35px 0
+
+      & > h2
+        font-weight: 700
+        color: white
+        font-size: 14px
+
+        @media (min-width: 700px)
+          font-size: 18px
+          line-height: 21px
+
+      & > p
+        color: white
+        font-size: 12px
+
+        @media (min-width: 700px)
+          font-size: 14px
+          line-height: 20px
+
+
+      & input
+        border-radius: 30px
+        background-color: white
+        padding-left: 25px
+        color: #C4C4C4
+        width: 200px
+        height: 30px
+
+        @media (min-width: 700px)
+          width: 225px
+          height: 35px
+          font-size: 14px
+          line-height: 16px
+
+
+    & .right
+      margin: 5px
+      height: 100%
+      vertical-align: middle
+
+    & .right .mail img
+      width: 90px
+      height: 80px
+
+      @media (min-width: 700px)
+        width: 140px
+        height: 107px
+        margin-bottom: 40px
+
+
+  & .our_shops
+    width: 100%
+    max-width: 450px
+    height: 100%
+    min-height: 130px
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+    & .left
+      margin: 5px
+      height: 100%
+      display: flex
+      flex-direction: column
+      justify-content: space-around
+
+      @media (min-width: 700px)
+        width: 255px
+        padding: 35px 0
+
+      & > h2
+        font-weight: 700
+        color: white
+        font-size: 14px
+
+        @media (min-width: 700px)
+          font-size: 18px
+          line-height: 21px
+
+      & > p
+        color: white
+        font-size: 12px
+
+        @media (min-width: 700px)
+          font-size: 14px
+          line-height: 20px
+
+      & button
+        background: #66C05D
+        border: 2px solid #FFFFFF
+        border-radius: 30px
+        font-size: 14px
+        line-height: 16px
+        color: white
+        text-align: center
+        width: 150px
+        height: 30px
+
+        @media (min-width: 700px)
+          width: 170px
+          height: 35px
+
+    & .right .car
+      margin: 5px
+      display: flex
+      align-items: center
+      justify-content: center
+
+      & img
+        width: 100px
+        height: 60px
+
+        @media (min-width: 700px)
+          width: 140px
+          height: 107px
+          margin-bottom: 40px
+
+
+.footer_top
+  width: 100%
+
+  @media (min-width: 700px)
+    height: 184px
+
+
+.footer_top_content
+  display: flex
+  justify-content: space-between
+  align-items: center
+  width: 100%
+  padding: 10px
+  flex-direction: column
+
+  & > *
+    margin: 5px
+
+  @media (min-width: 700px)
+    flex-direction: row
+    width: 1110px
+    height: 184px
+    padding: (184px - 45px) / 2 0
+    margin-left: calc((100% - 1110px) / 2)
+
+  & .links
+    display: flex
+    width: 65px * 4
+    justify-content: space-between
+
+    & .one_l
+      display: flex
+      align-items: center
+      justify-content: center
+
+    & .instagram
+
+
+.phone p, .address
+  vertical-align: middle
+  text-align: center
+
+
+.address, .call
+  font-size: 14px
+  line-height: 16px
+
+
+.phone
+  font-size: 16px
+  line-height: 19px
+
+
+.call
+  width: 170px
+  height: 40px
+  border: 2px solid $accent_color
+  border-radius: 40px
+  background-color: white
+
+
+.footer_bottom
+  width: 100%
+  background-color: $grey_color
+  display: flex
+  justify-content: space-around
+  flex-direction: column
+
+
+  @media (min-width: 700px)
+    height: 64px
+    flex-direction: row
+
+.footer_bottom_rights, .footer_bottom_conf
+  margin: 5px
+  font-size: 12px
+  line-height: 14px
+  color: #828282
+
+  @media (min-width: 700px)
+    margin-top: (64px - 14px) / 2
+
+
+.links
+  display: flex
+
+.youtube, .vk, .fb, .instagram
+  @extend %link_round
