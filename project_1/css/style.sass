@@ -57,7 +57,6 @@ body
 
 
 .second-line
-
   height: 100px
   display: flex
   justify-content: space-between
@@ -584,7 +583,8 @@ body
     & .right
       margin: 5px
       height: 100%
-      vertical-align: middle
+      display: flex
+      align-items: center
 
     & .right .mail img
       width: 90px
@@ -593,7 +593,6 @@ body
       @media (min-width: 700px)
         width: 140px
         height: 107px
-        margin-bottom: 40px
 
 
   & .our_shops
@@ -649,10 +648,9 @@ body
           height: 35px
 
     & .right .car
+      height: 100%
       margin: 5px
-      display: flex
-      align-items: center
-      justify-content: center
+      vertical-align: middle
 
       & img
         width: 100px
@@ -660,8 +658,7 @@ body
 
         @media (min-width: 700px)
           width: 140px
-          height: 107px
-          margin-bottom: 40px
+          height: 84px
 
 
 .footer_top
@@ -683,6 +680,14 @@ body
     margin: 5px
 
   @media (min-width: 700px)
+    flex-direction: row
+    flex-wrap: wrap
+    width: 650px
+    height: 184px
+    margin: auto
+
+
+  @media (min-width: 1200px)
     flex-direction: row
     width: 1110px
     height: 184px

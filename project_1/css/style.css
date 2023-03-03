@@ -668,7 +668,8 @@ body {
 .content__second_row .subscribe .right {
   margin: 5px;
   height: 100%;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
 }
 .content__second_row .subscribe .right .mail img {
   width: 90px;
@@ -678,7 +679,6 @@ body {
   .content__second_row .subscribe .right .mail img {
     width: 140px;
     height: 107px;
-    margin-bottom: 40px;
   }
 }
 .content__second_row .our_shops {
@@ -742,10 +742,9 @@ body {
   }
 }
 .content__second_row .our_shops .right .car {
+  height: 100%;
   margin: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  vertical-align: middle;
 }
 .content__second_row .our_shops .right .car img {
   width: 100px;
@@ -754,8 +753,7 @@ body {
 @media (min-width: 700px) {
   .content__second_row .our_shops .right .car img {
     width: 140px;
-    height: 107px;
-    margin-bottom: 40px;
+    height: 84px;
   }
 }
 
@@ -780,6 +778,15 @@ body {
   margin: 5px;
 }
 @media (min-width: 700px) {
+  .footer_top_content {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 650px;
+    height: 184px;
+    margin: auto;
+  }
+}
+@media (min-width: 1200px) {
   .footer_top_content {
     flex-direction: row;
     width: 1110px;
